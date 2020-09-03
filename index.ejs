@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!--
+        #menu-conatiner+#menu-option-container+(#formula-container>(#address-input+#formula-input))+#content-container+#sheets
+    -->
+
+    <div id="menu-container" class="menu">
+        <div id="File">File</div>
+        <div id="Home">Home</div>
+    </div>
+
+    <div id="menu-options-container" class="menu-options">
+        <div id="File-menu-options">
+            <div id="New">New</div>
+            <div id="Open">Open</div>
+            <div id="Save">Save</div>
+        </div>
+    </div>
+
+    <div id="formula-container" class="formula-container">
+        <input type="text" id="address-input"></input>
+        <input type="text" id="formula-input"></input>
+    </div>
+
+    <div id="content-container" class="content">
+        <div id="top-left-cell" class="top-left-cell"></div>
+        <div id="top-row" class="top-row">
+            <% for(let j = 0; j  < cols; j++) { %>
+            <div class="cell">
+                <%= String.fromCharCode( 65 + j ) %>
+            </div>
+            <% } %>
+        </div>
+
+        <div id="left-col" class="left-col">
+            <% for(let i = 1; i <= rows; i++) { %>
+            <div class="cell">
+                <%= i %>
+            </div>
+            <% } %>
+        </div>
+
+        <div id="grid" class="grid">
+            <% for(let i = 0; i < rows; i++) { %>
+            <div class="row">
+                <% for(let j = 0; j < cols; j++) { %>
+                <div class="cell" contenteditable="true" row-id = <%=i%> col-id= <%=j%> >
+                    
+                </div>
+                <% } %>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    
+    <div id="sheets" class="sheets">Sheets</div>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
